@@ -166,16 +166,23 @@
 
     <!-- Inline JavaScript for Section Control -->
     <script>
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.add('hidden');
-            });
+    function showSection(sectionId) {
+        alert("Button clicked for section: " + sectionId); // Alert to confirm function is called
 
-            // Show the selected section
-            document.getElementById(sectionId).classList.remove('hidden');
+        // Hide all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.classList.add('hidden');
+        });
+
+        // Show the selected section
+        const selectedSection = document.getElementById(sectionId);
+        if (selectedSection) {
+            selectedSection.classList.remove('hidden');
+        } else {
+            console.warn("Section with ID", sectionId, "not found."); // Warning if section is missing
         }
-    </script>
+    }
+</script>
 </body>
 </html>
 
