@@ -6,15 +6,15 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #e8f5e9;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f3f7f0;
     color: #333;
     line-height: 1.6;
 }
 
 /* Header */
 header {
-    background-color: #66bb6a;
+    background-color: #56b585;
     color: #fff;
     padding: 1.5em 0;
     text-align: center;
@@ -22,26 +22,29 @@ header {
 }
 
 header h1 {
-    font-size: 2em;
+    font-size: 2.2em;
+    font-weight: bold;
     margin: 0;
+    letter-spacing: 1px;
 }
 
 /* Content */
 .content {
-    max-width: 800px;
+    max-width: 900px;
     margin: 30px auto;
     padding: 20px;
     background-color: #ffffff;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Section Headers */
 h2 {
-    color: #66bb6a;
-    font-size: 1.5em;
-    margin-bottom: 10px;
-    border-bottom: 2px solid #66bb6a;
+    color: #56b585;
+    font-size: 1.8em;
+    margin-bottom: 15px;
     padding-bottom: 5px;
+    border-bottom: 2px solid #56b585;
 }
 
 p {
@@ -56,35 +59,56 @@ p {
 }
 
 .link-list li, .team-list li {
-    margin: 8px 0;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #f9fdf7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: background-color 0.3s;
 }
 
 .link-list a {
     color: #388e3c;
     text-decoration: none;
     font-weight: bold;
-    transition: color 0.3s;
+    font-size: 1.1em;
 }
 
 .link-list a:hover {
     color: #2e7d32;
+    text-decoration: underline;
+}
+
+.link-list li:hover {
+    background-color: #e8f5e9;
+}
+
+.team-list li {
+    color: #555;
+    font-size: 1.1em;
 }
 
 /* Section Styling */
 .section {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #f1f8e9;
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #f4fbf4;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Footer */
 footer {
-    background-color: #66bb6a;
+    background-color: #56b585;
     color: #fff;
     text-align: center;
     padding: 15px 0;
     margin-top: 30px;
     font-size: 0.9em;
+    border-radius: 0 0 8px 8px;
+}
+
+/* Hover Effects */
+.section:hover {
+    background-color: #edf7ed;
 }
