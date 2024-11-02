@@ -4,65 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health & Nutrition Overview</title>
-    <style>
-        /* Inline CSS for Simplicity */
-        body { font-family: Arial, sans-serif; color: #333; }
-        .hidden { display: none; }
-        .sidebar { float: left; width: 200px; }
-        .sidebar button { display: block; margin: 10px 0; padding: 10px; background: #56b585; color: white; border: none; cursor: pointer; }
-        .content-area { margin-left: 220px; padding: 20px; }
-        .section { margin-top: 20px; padding: 20px; background-color: #f3f7f0; }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Health & Nutrition Overview</h1>
+    <!-- Overall Summary Section -->
+    <header>
+        <h1>Health & Nutrition Overview</h1>
+        <div id="overview-summary">
+            <!-- Embed or link your Google Sheet snapshot here -->
+            <iframe src="https://docs.google.com/spreadsheets/d/1gdwrJwqUBdV6PMBg0g1t5ttWW_3_s4oOHmr1ONE9V28/pubhtml?widget=true&amp;headers=false" width="100%" height="300"></iframe>
+        </div>
+    </header>
 
-    <!-- Sidebar with Buttons -->
-    <div class="sidebar">
-        <button onclick="showSection('lookers')">Lookers</button>
-        <button onclick="showSection('sheet-trackers')">Sheet Trackers</button>
-        <button onclick="showSection('team-members')">Team Members</button>
-        <button onclick="showSection('sage')">Sage</button>
+    <!-- Main Layout -->
+    <div class="main-layout">
+        <!-- Sidebar Buttons -->
+        <nav class="sidebar">
+            <button onclick="showSection('lookers')">Lookers</button>
+            <button onclick="showSection('sheet-trackers')">Sheet Trackers</button>
+            <button onclick="showSection('team-members')">Team Members</button>
+            <button onclick="showSection('sage')">Sage</button>
+        </nav>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Lookers Section -->
+            <section id="lookers" class="section hidden">
+                <h2>Lookers</h2>
+                <ul class="link-list">
+                    <li><a href="https://noonprd.cloud.looker.com/dashboards/67?Comcat+Code=%22health_nutrition%22&Country=AE%2CSA&ID+Partner=&Comcat+2=&Product+Type=&Comcat+1=&Seller+Name=&Brand+Code=&SKU+Config=&Product+Subtype=&Is+Top+Brand=&Nub+Code=&Sub+Code=" target="_blank">Live Trends</a></li>
+                <li><a href="https://noonprd.cloud.looker.com/dashboards/17?Platform=Noon&Currency+Conversion=AED&Date=30+day&Date+Granularity=day&Comcat+Code=%22health_nutrition%22&Comcat+1=&Comcat+2=&Country=AE%2CSA&Product+Type=&Product+Subtype=&Bm2=&Bm1=&Brand+Code=&ID+Partner=&Partner+Name=&Is+Top+Brand+=&SKU=&Nub+Code=&Sub+Code=" target="_blank">Category Trends</a></li>
+                <li><a href="https://noonprd.cloud.looker.com/dashboards/41?Comcat+Code=%22health_nutrition%22&Brand+Code=&Gmv+Band=&SKU=&Country=AE%2CSA&Product+Type=&Warehouse+Type=&Is+Seller+Flex=&Bm1=&Bm2=&ID+Partner=&Comcat+1=&Comcat+2=&Is+Slob=&Is+Live=1&Is+Competitive=&Is+Comparable=&Partner+Code=&Is+Top+Brand=&SKU+Config=&Nub+Code=&Sub+Code=" target="_blank">Reservoir</a></li>
+                <li><a href="https://noonprd.cloud.looker.com/dashboards/40?Country=AE%2CSA&Date+Date=30+day&Comcat+Code=%22health_nutrition%22&Comcat+2=&Gmv+Band=&Brand+Code=&Comcat+1=&Is+Pl=&Product+Subtype=&Product+Type=&SKU+Config=&Is+Exp+Primary+SKU=&Is+Platform+Primary+SKU=&Flag+Platform+OOS=&Flag+Express+OOS=&SKU=&Is+Top+Brand=&Is+Fbn+%28applicable+to+oos+views+only%29=&Nub+Code=&Sub+Code=" target="_blank">Refuel and Replenishment</a></li>
+                <li><a href="https://noonprd.cloud.looker.com/dashboards/59?Date=15+day&Country=AE%2CSA&Comcat+2=&Comcat+Code=%22health_nutrition%22&Brand+Code=&Product+Type=&Comp+ID=%22LOWEST_COMPETITOR%22&Gmv+Band=&Is+Retail=&Gv+Band=&ID+Partner=&Is+Express=&Partner+Name=&SKU+Config=&Has+Buy+Box=1&Product+Subtype=&Is+Pf+Primary+SKU=&Is+Exp+Primary+SKU=&Comcat+1=&SKU=&Price+Comp+Bucket=&Is+Outlier=&Is+Top+Brand=&Sub+Code=&Nub+Code=&Is+Prime+Day+Deal=" target="_blank">Price Comp</a></li>
+
+	<li><a href="https://noonprd.cloud.looker.com/dashboards/206?Country=AE%2CSA&Product+Subtype=&Brand+Code=&Comcat+Code=%22health_nutrition%22&Product+Type=&SKU=&Title+En=&Comparable+Bb+Flag+Tdy=&Is+Live=&Is+Slob=&Competitive+Bb+Flag+Tdy=&Comparable+Flag+Tdy=&Competitive+Flag+Tdy=&ID+Partner=&SKU+Config=&Is+Live+Rocket=&BM=Retail" target="_blank">Retail SKU Master</a></li>
+	
+	<li><a href="https://noonprd.cloud.looker.com/dashboards/664?Business+Model=&Transaction+Date+Month=4+month&Country+Code=AE%2CSA&Nub+Code=%22nub_noon%22&SKU=&ID+Partner=&Brand+Code=&Product+Type=&Comcat+Code=%22health_nutrition%22&Product+Subtype=&Sub+Code=-NULL&ID+Mp=&ID+Partner+Name=" target="_blank">PnL</a></li>
+
+	<li><a href="https://noonprd.cloud.looker.com/dashboards/237?Country=AE%2CSA&Comcat+Code=%22health_nutrition%22&Date=90+day&ID+Partner=&Partner+Name=&Brand+Code=&Product+Subtype=&Product+Type=&Comcat+1=&Is+Retail=&Is+Exp=&SKU=&Comcat+2=&Top+Brand+Flag=&SKU+Config=&Is+Fbn=" target="_blank">Noon Assortment Trends</a></li>
+
+                </ul>
+            </section>
+
+            <!-- Sheet Trackers Section -->
+            <section id="sheet-trackers" class="section hidden">
+                <h2>Sheet Trackers</h2>
+                <ul class="link-list">
+                     <li><a href="https://docs.google.com/spreadsheets/d/1kyR2XWs-ugBcZhiUTAk7ocTiiP5QVWgTedha_7yQNR4/edit?gid=1072011970#gid=1072011970" target="_blank">Account managers view-HN Tracker</a></li>
+                <li><a href="https://docs.google.com/spreadsheets/d/18moBQNrWCbFCBk8cyGe2omJn2B69HOSxtJAL9Y5i7gc/edit?gid=1836234370#gid=1836234370" target="_blank">Account managers view Rocket-HN Tracker</a></li>
+                <li><a href="https://docs.google.com/spreadsheets/d/1GSjTcbd33mVw7ZxIQOckFy8WftcnKOV_4q6-MNPtgTo/edit?gid=1091212100#gid=1091212100" target="_blank">HN Deals Coverage</a></li>
+                <li><a href="https://docs.google.com/spreadsheets/d/1O3FCitPN8vrFGrGrccxELrAjeDAB__oPsLw-fyK9XkE/edit?gid=2044955906#gid=2044955906" target="_blank">Admon Investments HN</a></li>
+                <li><a href="https://docs.google.com/spreadsheets/d/1FnpvJNflThR6Db7mftEXymOkkyXTxlRtyhzhCIcnJGY/edit?gid=748132405#gid=748132405" target="_blank">YF HN Inventory Demand Supply</a></li>
+                <li><a href="https://docs.google.com/spreadsheets/d/1Y0IbJAwDL5q3CPW-o1G9eQLgc0WzNNNC87sGvWrQNlY/edit?gid=0#gid=0" target="_blank">Health Nutrition Project Update</a></li>
+                <li><a href="https://docs.google.com/spreadsheets/d/1sSGNcfjEGLcSegsA_Te6bS79I93H6M96w57gOxesUEE/edit?gid=0#gid=0" target="_blank">AE-Health_NutritionXInstock_Summary</a></li>
+                <li><a href="https://docs.google.com/spreadsheets/d/1Xx1Lfu_PassWQlTVansEMinxJgq9XR3xJwbEoHoBSeA/edit?gid=561514429#gid=561514429" target="_blank">SA-Health_NutritionXInstock_Summary</a></li>
+	    <li><a href="https://docs.google.com/spreadsheets/d/1HiXKoBG-UhYJB_QPYG2ooiOtVazs_Hl9_0l5GwrBJpw/edit?gid=243812946#gid=243812946" target="_blank">HN Retail Complete </a></li>
+	<li><a href="https://docs.google.com/spreadsheets/d/1HmnXxnOc-APiTV9AwHChkXdGMvDzHOOgZmDDvFU-Zbw/edit?gid=815469501#gid=815469501" target="_blank">AE_SA_Health_Nutrition_Assortment </a></li>
+
+                </ul>
+            </section>
+
+            <!-- Team Members Section -->
+            <section id="team-members" class="section hidden">
+                <h2>Team Members</h2>
+                <ul class="team-list">
+                    <li>Ritika Jain - Category Head</li>
+                    <li>Yamini Paliwal - Senior Account Manager</li>
+                <li>Parantap Joshi - Instock Manager</li>
+                <li>Mayank Gupta - Instock Associate</li>
+                <li>Akhila Ajith - BDS - Senior BDE </li>
+	   <li>Akhila Jowhar - Account Manager </li>
+               <li>Resvana Thanduparakkal - Pharmacist </li>
+	<li>Paulos Aron Tesfai - Senior Business Development Executive </li>
+	<li>Muhammed Samir - Account Manager</li>
+	<li>Abdullah Awais - Account Manager</li>
+	<li>Hadeer Samir - Junior Account Manager</li>
+
+                </ul>
+            </section>
+
+            <!-- Sage Section -->
+            <section id="sage" class="section hidden">
+                <h2>Sage</h2>
+                <ul class="link-list">
+                    <li><a href="https://sage.df.noon.team/" target="_blank">Sage</a></li>
+                </ul>
+            </section>
+        </div>
     </div>
 
-    <!-- Content Area -->
-    <div class="content-area">
-        <section id="lookers" class="section hidden">
-            <h2>Lookers</h2>
-            <p>Content for Lookers section.</p>
-        </section>
-        <section id="sheet-trackers" class="section hidden">
-            <h2>Sheet Trackers</h2>
-            <p>Content for Sheet Trackers section.</p>
-        </section>
-        <section id="team-members" class="section hidden">
-            <h2>Team Members</h2>
-            <p>Content for Team Members section.</p>
-        </section>
-        <section id="sage" class="section hidden">
-            <h2>Sage</h2>
-            <p>Content for Sage section.</p>
-        </section>
-    </div>
-
-    <!-- Inline JavaScript for Simplicity -->
-    <script>
-        function showSection(sectionId) {
-            console.log("Showing section:", sectionId); // Log for debugging
-            
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.add('hidden');
-            });
-
-            // Show the selected section
-            const selectedSection = document.getElementById(sectionId);
-            if (selectedSection) {
-                selectedSection.classList.remove('hidden');
-            } else {
-                console.warn("Section with ID", sectionId, "not found."); // Warning if section is missing
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
+
+
