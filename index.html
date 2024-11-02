@@ -4,70 +4,51 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health & Nutrition Overview</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Inline CSS for Simplicity */
+        body { font-family: Arial, sans-serif; color: #333; }
+        .hidden { display: none; }
+        .sidebar { float: left; width: 200px; }
+        .sidebar button { display: block; margin: 10px 0; padding: 10px; background: #56b585; color: white; border: none; cursor: pointer; }
+        .content-area { margin-left: 220px; padding: 20px; }
+        .section { margin-top: 20px; padding: 20px; background-color: #f3f7f0; }
+    </style>
 </head>
 <body>
-    <!-- Overall Summary Section -->
-    <header>
-        <h1>Health & Nutrition Overview</h1>
-        <div id="overview-summary">
-            <!-- Embed or link your Google Sheet snapshot here -->
-            <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_GOOGLE_SHEET_ID/pubhtml?widget=true&amp;headers=false" width="100%" height="300"></iframe>
-        </div>
-    </header>
+    <h1>Health & Nutrition Overview</h1>
 
-    <!-- Main Layout -->
-    <div class="main-layout">
-        <!-- Sidebar Buttons -->
-        <nav class="sidebar">
-            <button onclick="showSection('lookers')">Lookers</button>
-            <button onclick="showSection('sheet-trackers')">Sheet Trackers</button>
-            <button onclick="showSection('team-members')">Team Members</button>
-            <button onclick="showSection('sage')">Sage</button>
-        </nav>
-
-        <!-- Content Area -->
-        <div class="content-area">
-
-            <!-- Lookers Section -->
-            <section id="lookers" class="section hidden">
-                <h2>Lookers</h2>
-                <ul class="link-list">
-                    <li><a href="https://noonprd.cloud.looker.com/dashboards/67?Comcat+Code=%22health_nutrition%22&Country=AE%2CSA&ID+Partner=&Comcat+2=&Product+Type=&Comcat+1=&Seller+Name=&Brand+Code=&SKU+Config=&Product+Subtype=&Is+Top+Brand=&Nub+Code=&Sub+Code=" target="_blank">Live Trends</a></li>
-                </ul>
-            </section>
-
-            <!-- Sheet Trackers Section -->
-            <section id="sheet-trackers" class="section hidden">
-                <h2>Sheet Trackers</h2>
-                <ul class="link-list">
-                    <li><a href="https://docs.google.com/spreadsheets/d/1kyR2XWs-ugBcZhiUTAk7ocTiiP5QVWgTedha_7yQNR4/edit?gid=1072011970#gid=1072011970" target="_blank">Account managers view-HN Tracker</a></li>
-                </ul>
-            </section>
-
-            <!-- Team Members Section -->
-            <section id="team-members" class="section hidden">
-                <h2>Team Members</h2>
-                <ul class="team-list">
-                    <li>Ritika Jain - Category Head</li>
-                </ul>
-            </section>
-
-            <!-- Sage Section -->
-            <section id="sage" class="section hidden">
-                <h2>Sage</h2>
-                <ul class="link-list">
-                    <li><a href="https://sage.df.noon.team/" target="_blank">Sage</a></li>
-                </ul>
-            </section>
-
-        </div>
+    <!-- Sidebar with Buttons -->
+    <div class="sidebar">
+        <button onclick="showSection('lookers')">Lookers</button>
+        <button onclick="showSection('sheet-trackers')">Sheet Trackers</button>
+        <button onclick="showSection('team-members')">Team Members</button>
+        <button onclick="showSection('sage')">Sage</button>
     </div>
 
-    <!-- Inline JavaScript for Debugging -->
+    <!-- Content Area -->
+    <div class="content-area">
+        <section id="lookers" class="section hidden">
+            <h2>Lookers</h2>
+            <p>Content for Lookers section.</p>
+        </section>
+        <section id="sheet-trackers" class="section hidden">
+            <h2>Sheet Trackers</h2>
+            <p>Content for Sheet Trackers section.</p>
+        </section>
+        <section id="team-members" class="section hidden">
+            <h2>Team Members</h2>
+            <p>Content for Team Members section.</p>
+        </section>
+        <section id="sage" class="section hidden">
+            <h2>Sage</h2>
+            <p>Content for Sage section.</p>
+        </section>
+    </div>
+
+    <!-- Inline JavaScript for Simplicity -->
     <script>
         function showSection(sectionId) {
-            console.log("Showing section:", sectionId); // Debugging log
+            console.log("Showing section:", sectionId); // Log for debugging
             
             // Hide all sections
             document.querySelectorAll('.section').forEach(section => {
@@ -79,7 +60,7 @@
             if (selectedSection) {
                 selectedSection.classList.remove('hidden');
             } else {
-                console.warn("Section with ID", sectionId, "not found."); // Warn if the section ID is invalid
+                console.warn("Section with ID", sectionId, "not found."); // Warning if section is missing
             }
         }
     </script>
