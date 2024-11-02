@@ -12,7 +12,27 @@
             color: #333;
             margin: 0;
             display: flex;
+            flex-direction: column;
+        }
+
+        /* Header styling */
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: #56b585;
+            color: white;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.2em;
+        }
+
+        /* Layout container for sidebar and main content */
+        .layout {
+            display: flex;
             flex-direction: row;
+            width: 100%;
         }
 
         /* Sidebar styling */
@@ -94,50 +114,58 @@
     </style>
 </head>
 <body>
-    <!-- Sidebar for sections and links -->
-    <div class="sidebar">
-        <ul class="section-list">
-            <li class="section-item" onclick="toggleLinks('lookers-links')">Lookers</li>
-            <ul id="lookers-links" class="link-list">
-                <li><a href="https://noonprd.cloud.looker.com/dashboards/67?Comcat+Code=%22health_nutrition%22" target="_blank">Live Trends</a></li>
-                <li><a href="https://noonprd.cloud.looker.com/dashboards/17?Platform=Noon" target="_blank">Category Trends</a></li>
-                <li><a href="https://noonprd.cloud.looker.com/dashboards/41?Comcat+Code=%22health_nutrition%22" target="_blank">Reservoir</a></li>
-            </ul>
-            <li class="section-item" onclick="toggleLinks('sheet-trackers-links')">Sheet Trackers</li>
-            <ul id="sheet-trackers-links" class="link-list">
-                <li><a href="https://docs.google.com/spreadsheets/d/1kyR2XWs-ugBcZhiUTAk7ocTiiP5QVWgTedha_7yQNR4/edit#gid=1072011970" target="_blank">HN Tracker</a></li>
-                <li><a href="https://docs.google.com/spreadsheets/d/18moBQNrWCbFCBk8cyGe2omJn2B69HOSxtJAL9Y5i7gc/edit#gid=1836234370" target="_blank">Rocket HN Tracker</a></li>
-            </ul>
-            <li class="section-item" onclick="toggleLinks('team-members-links')">Team Members</li>
-            <ul id="team-members-links" class="link-list">
-                <li>Ritika Jain - Category Head</li>
-                <li>Yamini Paliwal - Senior Account Manager</li>
-                <li>Parantap Joshi - Instock Manager</li>
-            </ul>
-            <li class="section-item" onclick="toggleLinks('sage-links')">Sage</li>
-            <ul id="sage-links" class="link-list">
-                <li><a href="https://sage.df.noon.team/" target="_blank">Sage</a></li>
-            </ul>
-        </ul>
-    </div>
+    <!-- Main Heading -->
+    <header>
+        <h1>Health & Nutrition Overview</h1>
+    </header>
 
-    <!-- Main content area for snapshots -->
-    <div class="main-content">
-        <div class="snapshot-section">
-            <h2>GMV</h2>
-            <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_GOOGLE_SHEET_ID/pubhtml?gid=0&amp;widget=true&amp;headers=false"></iframe>
+    <!-- Layout container for sidebar and main content -->
+    <div class="layout">
+        <!-- Sidebar for sections and links -->
+        <div class="sidebar">
+            <ul class="section-list">
+                <li class="section-item" onclick="toggleLinks('lookers-links')">Lookers</li>
+                <ul id="lookers-links" class="link-list">
+                    <li><a href="https://noonprd.cloud.looker.com/dashboards/67?Comcat+Code=%22health_nutrition%22" target="_blank">Live Trends</a></li>
+                    <li><a href="https://noonprd.cloud.looker.com/dashboards/17?Platform=Noon" target="_blank">Category Trends</a></li>
+                    <li><a href="https://noonprd.cloud.looker.com/dashboards/41?Comcat+Code=%22health_nutrition%22" target="_blank">Reservoir</a></li>
+                </ul>
+                <li class="section-item" onclick="toggleLinks('sheet-trackers-links')">Sheet Trackers</li>
+                <ul id="sheet-trackers-links" class="link-list">
+                    <li><a href="https://docs.google.com/spreadsheets/d/1kyR2XWs-ugBcZhiUTAk7ocTiiP5QVWgTedha_7yQNR4/edit#gid=1072011970" target="_blank">HN Tracker</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/18moBQNrWCbFCBk8cyGe2omJn2B69HOSxtJAL9Y5i7gc/edit#gid=1836234370" target="_blank">Rocket HN Tracker</a></li>
+                </ul>
+                <li class="section-item" onclick="toggleLinks('team-members-links')">Team Members</li>
+                <ul id="team-members-links" class="link-list">
+                    <li>Ritika Jain - Category Head</li>
+                    <li>Yamini Paliwal - Senior Account Manager</li>
+                    <li>Parantap Joshi - Instock Manager</li>
+                </ul>
+                <li class="section-item" onclick="toggleLinks('sage-links')">Sage</li>
+                <ul id="sage-links" class="link-list">
+                    <li><a href="https://sage.df.noon.team/" target="_blank">Sage</a></li>
+                </ul>
+            </ul>
         </div>
-        <div class="snapshot-section">
-            <h2>OOS</h2>
-            <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_GOOGLE_SHEET_ID/pubhtml?gid=1&amp;widget=true&amp;headers=false"></iframe>
-        </div>
-        <div class="snapshot-section">
-            <h2>Price Comp</h2>
-            <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_GOOGLE_SHEET_ID/pubhtml?gid=2&amp;widget=true&amp;headers=false"></iframe>
-        </div>
-        <div class="snapshot-section">
-            <h2>PnL</h2>
-            <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_GOOGLE_SHEET_ID/pubhtml?gid=3&amp;widget=true&amp;headers=false"></iframe>
+
+        <!-- Main content area for snapshots -->
+        <div class="main-content">
+            <div class="snapshot-section">
+                <h2>GMV</h2>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=2015018337&single=true&amp;headers=false"></iframe>
+            </div>
+            <div class="snapshot-section">
+                <h2>OOS</h2>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=1138821273&single=true&amp;headers=false"></iframe>
+            </div>
+            <div class="snapshot-section">
+                <h2>Price Comp</h2>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=1125587693&single=true&amp;headers=false"></iframe>
+            </div>
+            <div class="snapshot-section">
+                <h2>PnL</h2>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=584988054&single=true&amp;headers=false"></iframe>
+            </div>
         </div>
     </div>
 
@@ -154,3 +182,5 @@
     </script>
 </body>
 </html>
+
+
