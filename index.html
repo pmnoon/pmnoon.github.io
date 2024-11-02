@@ -3,189 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Health & Nutrition Overview</title>
+    <title>Health & Nutrition Dashboard</title>
     <style>
-        /* Styling for Health-Themed Page */
+        /* General styling for the dashboard */
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f8f5;
             color: #333;
             margin: 0;
+            display: flex;
+            flex-direction: row;
         }
 
-        /* Header */
-        header {
-            text-align: center;
-            padding: 20px;
-            background-color: #56b585;
-            color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-
-        header h1 {
-            font-size: 2.2em;
-        }
-
-        /* Google Sheet Embed Section */
-        #overview-summary {
-            margin: 20px auto;
-            max-width: 900px;
-            text-align: center;
-            padding: 10px;
-            border-radius: 8px;
-            background-color: #e7f5eb;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        iframe {
-            width: 100%;
-            height: 300px;
-            border: none;
-            border-radius: 8px;
-        }
-
-        /* Sidebar */
+        /* Sidebar styling */
         .sidebar {
-            float: left;
-            width: 220px;
+            width: 25%;
             padding: 20px;
             background-color: #ffffff;
             border-right: 2px solid #ddd;
             box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
         }
 
-        .sidebar button {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 10px;
-            background-color: #56b585;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1em;
-            transition: background-color 0.3s;
+        .section-list {
+            list-style-type: none;
+            padding: 0;
         }
 
-        .sidebar button:hover {
+        .section-item {
+            cursor: pointer;
+            padding: 10px;
+            background-color: #56b585;
+            color: white;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .section-item:hover {
             background-color: #4a9c71;
         }
 
-        /* Content Area */
-        .content-area {
-            margin-left: 240px;
-            padding: 20px;
+        .link-list {
+            display: none;
+            list-style-type: none;
+            padding-left: 15px;
+            margin-top: 5px;
         }
 
-        /* Sections */
-        .section {
+        .link-list a {
+            color: #388e3c;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .link-list a:hover {
+            color: #2e7d32;
+        }
+
+        /* Main content styling */
+        .main-content {
+            width: 75%;
             padding: 20px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 20px;
+        }
+
+        /* Snapshot section styling */
+        .snapshot-section {
             background-color: #f9fdf7;
+            padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            display: none; /* Hidden by default */
+            text-align: center;
         }
 
-        .section h2 {
+        .snapshot-section h2 {
             color: #56b585;
-            font-size: 1.8em;
+            font-size: 1.5em;
+            margin-bottom: 10px;
         }
 
-        /* Show only the active section */
-        .hidden {
-            display: none;
+        iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            border-radius: 8px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Health & Nutrition Overview</h1>
-    </header>
-
-    <!-- Google Sheet Snapshot Section -->
-    <div id="overview-summary">
-        <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=2015018337&single=true&amp;headers=false"></iframe>
+    <!-- Sidebar for sections and links -->
+    <div class="sidebar">
+        <ul class="section-list">
+            <li class="section-item" onclick="toggleLinks('lookers-links')">Lookers</li>
+            <ul id="lookers-links" class="link-list">
+                <li><a href="https://noonprd.cloud.looker.com/dashboards/67?Comcat+Code=%22health_nutrition%22" target="_blank">Live Trends</a></li>
+                <li><a href="https://noonprd.cloud.looker.com/dashboards/17?Platform=Noon" target="_blank">Category Trends</a></li>
+                <li><a href="https://noonprd.cloud.looker.com/dashboards/41?Comcat+Code=%22health_nutrition%22" target="_blank">Reservoir</a></li>
+            </ul>
+            <li class="section-item" onclick="toggleLinks('sheet-trackers-links')">Sheet Trackers</li>
+            <ul id="sheet-trackers-links" class="link-list">
+                <li><a href="https://docs.google.com/spreadsheets/d/1kyR2XWs-ugBcZhiUTAk7ocTiiP5QVWgTedha_7yQNR4/edit#gid=1072011970" target="_blank">HN Tracker</a></li>
+                <li><a href="https://docs.google.com/spreadsheets/d/18moBQNrWCbFCBk8cyGe2omJn2B69HOSxtJAL9Y5i7gc/edit#gid=1836234370" target="_blank">Rocket HN Tracker</a></li>
+            </ul>
+            <li class="section-item" onclick="toggleLinks('team-members-links')">Team Members</li>
+            <ul id="team-members-links" class="link-list">
+                <li>Ritika Jain - Category Head</li>
+                <li>Yamini Paliwal - Senior Account Manager</li>
+                <li>Parantap Joshi - Instock Manager</li>
+            </ul>
+            <li class="section-item" onclick="toggleLinks('sage-links')">Sage</li>
+            <ul id="sage-links" class="link-list">
+                <li><a href="https://sage.df.noon.team/" target="_blank">Sage</a></li>
+            </ul>
+        </ul>
     </div>
 
-    <!-- Main Layout -->
-    <div class="main-layout">
-        <!-- Sidebar Buttons -->
-        <div class="sidebar">
-            <button onclick="showSection('lookers')">Lookers</button>
-            <button onclick="showSection('sheet-trackers')">Sheet Trackers</button>
-            <button onclick="showSection('team-members')">Team Members</button>
-            <button onclick="showSection('sage')">Sage</button>
+    <!-- Main content area for snapshots -->
+    <div class="main-content">
+        <div class="snapshot-section">
+            <h2>GMV</h2>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_GOOGLE_SHEET_ID/pubhtml?gid=0&amp;widget=true&amp;headers=false"></iframe>
         </div>
-
-        <!-- Content Area -->
-        <div class="content-area">
-            <!-- Lookers Section -->
-            <section id="lookers" class="section hidden">
-                <h2>Lookers</h2>
-                <ul class="link-list">
-                    <li><a href="https://noonprd.cloud.looker.com/dashboards/67?Comcat+Code=%22health_nutrition%22&Country=AE%2CSA&ID+Partner=&Comcat+2=&Product+Type=&Comcat+1=&Seller+Name=&Brand+Code=&SKU+Config=&Product+Subtype=&Is+Top+Brand=&Nub+Code=&Sub+Code=" target="_blank">Live Trends</a></li>
-                    <li><a href="https://noonprd.cloud.looker.com/dashboards/17?Platform=Noon&Currency+Conversion=AED&Date=30+day&Date+Granularity=day&Comcat+Code=%22health_nutrition%22&Comcat+1=&Comcat+2=&Country=AE%2CSA&Product+Type=&Product+Subtype=&Bm2=&Bm1=&Brand+Code=&ID+Partner=&Partner+Name=&Is+Top+Brand+=&SKU=&Nub+Code=&Sub+Code=" target="_blank">Category Trends</a></li>
-                    <li><a href="https://noonprd.cloud.looker.com/dashboards/41?Comcat+Code=%22health_nutrition%22&Brand+Code=&Gmv+Band=&SKU=&Country=AE%2CSA&Product+Type=&Warehouse+Type=&Is+Seller+Flex=&Bm1=&Bm2=&ID+Partner=&Comcat+1=&Comcat+2=&Is+Slob=&Is+Live=1&Is+Competitive=&Is+Comparable=&Partner+Code=&Is+Top+Brand=&SKU+Config=&Nub+Code=&Sub+Code=" target="_blank">Reservoir</a></li>
-                    <li><a href="https://noonprd.cloud.looker.com/dashboards/40?Country=AE%2CSA&Date+Date=30+day&Comcat+Code=%22health_nutrition%22&Comcat+2=&Gmv+Band=&Brand+Code=&Comcat+1=&Is+Pl=&Product+Subtype=&Product+Type=&SKU+Config=&Is+Exp+Primary+SKU=&Is+Platform+Primary+SKU=&Flag+Platform+OOS=&Flag+Express+OOS=&SKU=&Is+Top+Brand=&Is+Fbn+%28applicable+to+oos+views+only%29=&Nub+Code=&Sub+Code=" target="_blank">Refuel and Replenishment</a></li>
-                    <li><a href="https://noonprd.cloud.looker.com/dashboards/59?Date=15+day&Country=AE%2CSA&Comcat+2=&Comcat+Code=%22health_nutrition%22&Brand+Code=&Product+Type=&Comp+ID=%22LOWEST_COMPETITOR%22&Gmv+Band=&Is+Retail=&Gv+Band=&ID+Partner=&Is+Express=&Partner+Name=&SKU+Config=&Has+Buy+Box=1&Product+Subtype=&Is+Pf+Primary+SKU=&Is+Exp+Primary+SKU=&Comcat+1=&SKU=&Price+Comp+Bucket=&Is+Outlier=&Is+Top+Brand=&Sub+Code=&Nub+Code=&Is+Prime+Day+Deal=" target="_blank">Price Comp</a></li>
-                </ul>
-            </section>
-
-            <!-- Sheet Trackers Section -->
-            <section id="sheet-trackers" class="section hidden">
-                <h2>Sheet Trackers</h2>
-                <ul>
-                    <li><a href="https://docs.google.com/spreadsheets/d/1kyR2XWs-ugBcZhiUTAk7ocTiiP5QVWgTedha_7yQNR4/edit?gid=1072011970#gid=1072011970" target="_blank">Account managers view-HN Tracker</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/18moBQNrWCbFCBk8cyGe2omJn2B69HOSxtJAL9Y5i7gc/edit?gid=1836234370#gid=1836234370" target="_blank">Account managers view Rocket-HN Tracker</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/1GSjTcbd33mVw7ZxIQOckFy8WftcnKOV_4q6-MNPtgTo/edit?gid=1091212100#gid=1091212100" target="_blank">HN Deals Coverage</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/1O3FCitPN8vrFGrGrccxELrAjeDAB__oPsLw-fyK9XkE/edit?gid=2044955906#gid=2044955906" target="_blank">Admon Investments HN</a></li>
-                </ul>
-            </section>
-
-            <!-- Team Members Section -->
-            <section id="team-members" class="section hidden">
-                <h2>Team Members</h2>
-                <ul>
-                    <li>Ritika Jain - Category Head</li>
-                    <li>Yamini Paliwal - Senior Account Manager</li>
-                    <li>Parantap Joshi - Instock Manager</li>
-                    <li>Mayank Gupta - Instock Associate</li>
-                    <li>Akhila Ajith - BDS - Senior BDE</li>
-                </ul>
-            </section>
-
-            <!-- Sage Section -->
-            <section id="sage" class="section hidden">
-                <h2>Sage</h2>
-                <ul>
-                    <li><a href="https://sage.df.noon.team/" target="_blank">Sage</a></li>
-                </ul>
-            </section>
+        <div class="snapshot-section">
+            <h2>OOS</h2>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_GOOGLE_SHEET_ID/pubhtml?gid=1&amp;widget=true&amp;headers=false"></iframe>
+        </div>
+        <div class="snapshot-section">
+            <h2>Price Comp</h2>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_GOOGLE_SHEET_ID/pubhtml?gid=2&amp;widget=true&amp;headers=false"></iframe>
+        </div>
+        <div class="snapshot-section">
+            <h2>PnL</h2>
+            <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_GOOGLE_SHEET_ID/pubhtml?gid=3&amp;widget=true&amp;headers=false"></iframe>
         </div>
     </div>
 
-    <!-- Inline JavaScript for Section Control -->
     <script>
-    function showSection(sectionId) {
-        alert("Button clicked for section: " + sectionId);
-
-        // Hide all sections by setting `display: none;`
-        document.querySelectorAll('.section').forEach(section => {
-            section.style.display = 'none';
-        });
-
-        // Show the selected section by setting `display: block;`
-        const selectedSection = document.getElementById(sectionId);
-        if (selectedSection) {
-            selectedSection.style.display = 'block';
-            console.log("Showing section:", sectionId);
-        } else {
-            console.warn("Section with ID", sectionId, "not found.");
+        // Toggle visibility of link lists
+        function toggleLinks(id) {
+            const links = document.getElementById(id);
+            if (links.style.display === "none" || links.style.display === "") {
+                links.style.display = "block";
+            } else {
+                links.style.display = "none";
+            }
         }
-    }
-</script>
+    </script>
 </body>
 </html>
-
-
-
