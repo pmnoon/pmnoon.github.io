@@ -167,21 +167,20 @@
     <!-- Inline JavaScript for Section Control -->
     <script>
     function showSection(sectionId) {
-        alert("Button clicked for section: " + sectionId); // Alert to confirm function is called
+        alert("Button clicked for section: " + sectionId);
 
-        // Hide all sections
+        // Hide all sections by setting `display: none;`
         document.querySelectorAll('.section').forEach(section => {
-            section.classList.add('hidden');
-            console.log("Hiding section:", section.id); // Debug log for hiding sections
+            section.style.display = 'none';
         });
 
-        // Show the selected section
+        // Show the selected section by setting `display: block;`
         const selectedSection = document.getElementById(sectionId);
         if (selectedSection) {
-            selectedSection.classList.remove('hidden');
-            console.log("Showing section:", sectionId); // Debug log for showing section
+            selectedSection.style.display = 'block';
+            console.log("Showing section:", sectionId);
         } else {
-            console.warn("Section with ID", sectionId, "not found."); // Warning if section is missing
+            console.warn("Section with ID", sectionId, "not found.");
         }
     }
 </script>
