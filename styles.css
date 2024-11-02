@@ -6,95 +6,80 @@
 }
 
 body {
-    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-family: Arial, sans-serif;
     background-color: #f3f7f0;
     color: #333;
-    line-height: 1.6;
 }
 
-/* Header */
-header {
+/* Menu Button */
+.menu-btn {
+    font-size: 1.5em;
     background-color: #56b585;
-    color: #fff;
-    padding: 1.5em 0;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 10;
+    border-radius: 5px;
 }
 
-header h1 {
-    font-size: 2.2em;
-    font-weight: bold;
-    margin: 0;
-    letter-spacing: 1px;
+/* Sidebar */
+.sidebar {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: #56b585;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+    z-index: 20;
+}
+
+.sidebar a {
+    padding: 15px 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    color: white;
+    display: block;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background-color: #4a9c71;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 2em;
+    cursor: pointer;
 }
 
 /* Content */
 .content {
+    padding: 20px;
     max-width: 900px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
 }
 
-/* Section Headers */
-h2 {
-    color: #56b585;
-    font-size: 1.8em;
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-bottom: 2px solid #56b585;
-}
-
-p {
-    color: #555;
-}
-
-/* Link List */
-.link-list, .team-list {
-    list-style-type: none;
-    margin: 15px 0;
-    padding-left: 0;
-}
-
-.link-list li, .team-list li {
-    margin: 10px 0;
-    padding: 10px;
-    border-radius: 6px;
-    background-color: #f9fdf7;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-    transition: background-color 0.3s;
-}
-
-.link-list a {
-    color: #388e3c;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1.1em;
-}
-
-.link-list a:hover {
-    color: #2e7d32;
-    text-decoration: underline;
-}
-
-.link-list li:hover {
-    background-color: #e8f5e9;
-}
-
-.team-list li {
-    color: #555;
-    font-size: 1.1em;
-}
-
-/* Section Styling */
+/* Sections */
 .section {
-    margin-top: 25px;
+    margin-top: 20px;
     padding: 20px;
-    background-color: #f4fbf4;
+    background-color: #f9fdf7;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: none; /* Hidden by default */
+}
+
+/* Show only the active section */
+.hidden {
+    display: none;
 }
 
 /* Footer */
@@ -104,11 +89,4 @@ footer {
     text-align: center;
     padding: 15px 0;
     margin-top: 30px;
-    font-size: 0.9em;
-    border-radius: 0 0 8px 8px;
-}
-
-/* Hover Effects */
-.section:hover {
-    background-color: #edf7ed;
 }
