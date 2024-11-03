@@ -106,11 +106,31 @@
             margin-bottom: 10px;
         }
 
+        /* Style to hide header and footer elements inside the iframe */
         iframe {
             width: 100%;
             height: 450px;
             border: none;
             border-radius: 8px;
+            position: relative;
+        }
+
+        iframe::before,
+        iframe::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 50px; /* Adjust to hide title height */
+            background-color: #ffd700; /* Match iframe background color */
+            z-index: 1;
+        }
+
+        iframe::after {
+            top: auto;
+            bottom: 0;
+            height: 30px; /* Adjust to hide footer height */
         }
     </style>
 </head>
@@ -157,15 +177,15 @@
             </div>
             <div class="snapshot-section">
                 <h2>OOS</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=1138821273&output=html&rm=minimal"></iframe>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=1138821273&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
             </div>
             <div class="snapshot-section">
                 <h2>Price Comp</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=1125587693&output=html&rm=minimal"></iframe>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=1125587693&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
             </div>
             <div class="snapshot-section">
                 <h2>PnL</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=584988054&output=html&rm=minimal"></iframe>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=584988054&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
             </div>
         </div>
     </div>
