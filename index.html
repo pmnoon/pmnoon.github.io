@@ -85,16 +85,9 @@
         .main-content {
             width: 75%;
             padding: 20px;
-            display: grid;
-            grid-template-columns: 1fr;
-            grid-gap: 20px;
-        }
-
-        /* Responsive grid layout for larger screens */
-        @media (min-width: 800px) {
-            .main-content {
-                grid-template-columns: repeat(2, 1fr);
-            }
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         /* Snapshot section styling */
@@ -114,7 +107,7 @@
 
         iframe {
             width: 100%;
-            height: 450px; /* Increase height to fit content better */
+            height: 450px; /* Height to fit content better */
             border: none;
             border-radius: 8px;
         }
@@ -155,23 +148,23 @@
             </ul>
         </div>
 
-        <!-- Main content area for snapshots -->
+        <!-- Main content area for snapshots in stacked stripes layout -->
         <div class="main-content">
             <div class="snapshot-section">
                 <h2>GMV</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=2015018337&single=true&amp;headers=false"></iframe>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_GOOGLE_SHEET_ID/pubhtml?gid=0&amp;widget=true&amp;headers=false"></iframe>
             </div>
             <div class="snapshot-section">
                 <h2>OOS</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=1138821273&single=true&amp;headers=false"></iframe>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_GOOGLE_SHEET_ID/pubhtml?gid=1&amp;widget=true&amp;headers=false"></iframe>
             </div>
             <div class="snapshot-section">
                 <h2>Price Comp</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=1125587693&single=true&amp;headers=false"></iframe>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_GOOGLE_SHEET_ID/pubhtml?gid=2&amp;widget=true&amp;headers=false"></iframe>
             </div>
             <div class="snapshot-section">
                 <h2>PnL</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=584988054&single=true&amp;headers=false"></iframe>
+                <iframe src="https://docs.google.com/spreadsheets/d/e/YOUR_GOOGLE_SHEET_ID/pubhtml?gid=3&amp;widget=true&amp;headers=false"></iframe>
             </div>
         </div>
     </div>
@@ -189,5 +182,3 @@
     </script>
 </body>
 </html>
-
-
