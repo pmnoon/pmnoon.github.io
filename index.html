@@ -5,185 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health & Nutrition Dashboard</title>
     <style>
-        /* General styling for the dashboard */
         body {
             font-family: Arial, sans-serif;
-            background-color: #fffacd; /* Light yellow background */
+            background-color: #fffacd;
             color: #333;
             margin: 0;
             display: flex;
             flex-direction: column;
         }
-
-        /* Header styling */
         header {
             text-align: center;
             padding: 20px;
-            background-color: #ffd700; /* Bright yellow header */
+            background-color: #ffd700;
             color: black;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
-
         header h1 {
             font-size: 2.2em;
         }
-
-        /* Layout container for sidebar and main content */
-        .layout {
-            display: flex;
-            flex-direction: row;
-            width: 100%;
-        }
-
-        /* Sidebar styling */
-        .sidebar {
-            width: 25%;
+        .content {
             padding: 20px;
-            background-color: #fffacd; /* Light yellow sidebar */
-            border-right: 2px solid #ddd;
-            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .section-list {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .section-item {
-            cursor: pointer;
-            padding: 10px;
-            background-color: #ffd700; /* Bright yellow for section items */
-            color: black;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            font-size: 1.1em;
             text-align: center;
         }
-
-        .section-item:hover {
-            background-color: #ffeb3b; /* Slightly lighter yellow on hover */
-        }
-
-        .link-list {
-            display: none;
-            list-style-type: none;
-            padding-left: 15px;
-            margin-top: 5px;
-        }
-
-        .link-list a {
-            color: #333;
-            text-decoration: none;
-            font-weight: bold;
-        }
-
-        .link-list a:hover {
-            color: #222;
-        }
-
-        /* Main content styling */
-        .main-content {
-            width: 75%;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        /* Snapshot section styling */
-        .snapshot-section {
-            background-color: #ffd700; /* Bright yellow for snapshot sections */
-            padding: 20px;
+        .snippet-box {
+            padding: 15px;
+            background-color: #ffd700;
+            color: black;
             border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-align: center;
-            color: black;
-        }
-
-        .snapshot-section h2 {
-            color: black;
             font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        /* Style to hide header and footer elements inside the iframe */
-        iframe {
-            width: 100%;
-            height: 450px;
-            border: none;
-            border-radius: 8px;
+            margin: 20px auto;
+            width: 60%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
     </style>
 </head>
 <body>
-    <!-- Main Heading -->
     <header>
         <h1>Health & Nutrition Overview</h1>
     </header>
 
-    <!-- Layout container for sidebar and main content -->
-    <div class="layout">
-        <!-- Sidebar for sections and links -->
-        <div class="sidebar">
-            <ul class="section-list">
-                <li class="section-item" onclick="toggleLinks('lookers-links')">Lookers</li>
-                <ul id="lookers-links" class="link-list">
-                    <li><a href="https://noonprd.cloud.looker.com/dashboards/67?Comcat+Code=%22health_nutrition%22" target="_blank">Live Trends</a></li>
-                    <li><a href="https://noonprd.cloud.looker.com/dashboards/17?Platform=Noon" target="_blank">Category Trends</a></li>
-                    <li><a href="https://noonprd.cloud.looker.com/dashboards/41?Comcat+Code=%22health_nutrition%22" target="_blank">Reservoir</a></li>
-                </ul>
-                <li class="section-item" onclick="toggleLinks('sheet-trackers-links')">Sheet Trackers</li>
-                <ul id="sheet-trackers-links" class="link-list">
-                    <li><a href="https://docs.google.com/spreadsheets/d/1kyR2XWs-ugBcZhiUTAk7ocTiiP5QVWgTedha_7yQNR4/edit" target="_blank">HN Tracker</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/18moBQNrWCbFCBk8cyGe2omJn2B69HOSxtJAL9Y5i7gc/edit" target="_blank">Rocket HN Tracker</a></li>
-                </ul>
-                <li class="section-item" onclick="toggleLinks('team-members-links')">Team Members</li>
-                <ul id="team-members-links" class="link-list">
-                    <li>Ritika Jain - Category Head</li>
-                    <li>Yamini Paliwal - Senior Account Manager</li>
-                    <li>Parantap Joshi - Instock Manager</li>
-                </ul>
-                <li class="section-item" onclick="toggleLinks('sage-links')">Sage</li>
-                <ul id="sage-links" class="link-list">
-                    <li><a href="https://sage.df.noon.team/" target="_blank">Sage</a></li>
-                </ul>
-            </ul>
-        </div>
-
-        <!-- Main content area for snapshots with lazy loading -->
-        <div class="main-content">
-            <div class="snapshot-section" onclick="loadIframe('gmv-iframe', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=2015018337&single=true&widget=true&headers=false')">
-                <h2>GMV</h2>
-                <iframe id="gmv-iframe" src=""></iframe>
-            </div>
-            <div class="snapshot-section" onclick="loadIframe('oos-iframe', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=1138821273&single=true&widget=true&headers=false')">
-                <h2>OOS</h2>
-                <iframe id="oos-iframe" src=""></iframe>
-            </div>
-            <div class="snapshot-section" onclick="loadIframe('price-comp-iframe', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=1125587693&single=true&widget=true&headers=false')">
-                <h2>Price Comp</h2>
-                <iframe id="price-comp-iframe" src=""></iframe>
-            </div>
-            <div class="snapshot-section" onclick="loadIframe('pnl-iframe', 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=584988054&single=true&widget=true&headers=false')">
-                <h2>PnL</h2>
-                <iframe id="pnl-iframe" src=""></iframe>
-            </div>
-        </div>
+    <div class="content">
+        <h2>Daily Snippet</h2>
+        <div class="snippet-box" id="snippet">Loading today's snippet...</div>
     </div>
 
     <script>
-        // Lazy load function to set iframe src only on click
-        function loadIframe(iframeId, url) {
-            const iframe = document.getElementById(iframeId);
-            if (!iframe.src) {
-                iframe.src = url;
+        const scriptURL = "AKfycbxITgO5ctGaOQZOMkmvkUn23jAiTNGf5QtLPCtmZmo"; // Replace with your Apps Script URL
+
+        async function fetchSnippet() {
+            try {
+                const response = await fetch(scriptURL);
+                const data = await response.json();
+                document.getElementById("snippet").innerText = data.snippet;
+            } catch (error) {
+                console.error("Error fetching snippet:", error);
+                document.getElementById("snippet").innerText = "Failed to load snippet.";
             }
         }
 
-        // Toggle visibility of link lists
-        function toggleLinks(id) {
-            const links = document.getElementById(id);
-            links.style.display = links.style.display === "none" ? "block" : "none";
+        // Fetch snippet once a day
+        const lastFetch = localStorage.getItem("lastSnippetFetch");
+        const today = new Date().toDateString();
+        if (lastFetch !== today) {
+            fetchSnippet();
+            localStorage.setItem("lastSnippetFetch", today);
+        } else {
+            document.getElementById("snippet").innerText = localStorage.getItem("snippet");
         }
     </script>
 </body>
