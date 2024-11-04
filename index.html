@@ -9,7 +9,7 @@
         /* General styling for the dashboard */
         body {
             font-family: Arial, sans-serif;
-            background-color: #fffacd;
+            background-color: #f9fafb;
             color: #333;
             margin: 0;
             display: flex;
@@ -20,15 +20,41 @@
         header {
             text-align: center;
             padding: 20px;
-            background: linear-gradient(135deg, #ffd700, #f0c600);
-            color: black;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            background: linear-gradient(135deg, #66b2ff, #3b8bbf);
+            color: white;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
         }
 
         header h1 {
             font-size: 2.2em;
+            margin: 0;
+        }
+
+        /* Medicine stickers in header background */
+        header::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -30px;
+            background: url('https://image.shutterstock.com/image-vector/pills-capsules-vector-seamless-pattern-260nw-1922489449.jpg') center / cover no-repeat;
+            opacity: 0.15;
+            width: 200px;
+            height: 200px;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            right: -30px;
+            background: url('https://image.shutterstock.com/image-vector/medicine-pharmaceutical-icons-symbol-seamless-260nw-1466438915.jpg') center / cover no-repeat;
+            opacity: 0.15;
+            width: 200px;
+            height: 200px;
         }
 
         /* Layout container for sidebar and main content */
@@ -40,13 +66,13 @@
         /* Sidebar styling */
         .sidebar {
             position: fixed;
-            top: 0;
+            top: 80px; /* Positioned below the header */
             bottom: 0;
             left: 0;
             width: 25%;
             padding: 20px;
-            background-color: #fffacd;
-            border-right: 2px solid #ddd;
+            background-color: rgba(102, 178, 255, 0.1);
+            border-right: 2px solid #ccc;
             box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
             overflow-y: auto;
         }
@@ -59,21 +85,20 @@
         .section-item {
             cursor: pointer;
             padding: 10px;
-            background-color: #ffeb3b;
-            color: #222;
+            background-color: rgba(102, 178, 255, 0.7);
+            color: white;
             font-weight: bold;
             margin-bottom: 10px;
             border-radius: 5px;
             font-size: 1.1em;
             text-align: center;
-            border: 1px solid #e0d800;
+            border: 1px solid rgba(59, 139, 191, 0.5);
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         .section-item:hover {
-            background-color: #f0c600;
+            background-color: rgba(102, 178, 255, 1);
             transform: scale(1.05);
-            color: white;
         }
 
         .link-list {
@@ -84,13 +109,13 @@
         }
 
         .link-list a {
-            color: #333;
+            color: #555;
             text-decoration: none;
             font-weight: bold;
         }
 
         .link-list a:hover {
-            color: #222;
+            color: #333;
         }
 
         /* Main content styling */
@@ -103,17 +128,17 @@
 
         /* Snapshot section styling */
         .snapshot-section {
-            background-color: #fffbe7;
+            background-color: rgba(59, 139, 191, 0.1);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #ffd700;
+            border-left: 5px solid #66b2ff;
             text-align: center;
-            color: black;
+            color: #333;
         }
 
         .snapshot-section h2 {
-            color: black;
+            color: #3b8bbf;
             font-size: 1.5em;
             margin-bottom: 10px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -131,15 +156,15 @@
         footer {
             text-align: center;
             padding: 15px;
-            background-color: #ffd700;
-            color: black;
+            background-color: #66b2ff;
+            color: white;
             font-size: 0.9em;
             margin-top: 20px;
             box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
         }
 
         footer a {
-            color: black;
+            color: white;
             text-decoration: none;
         }
 
@@ -167,21 +192,16 @@
                 <li class="section-item" onclick="toggleLinks('lookers-links')"><i class="fas fa-chart-line"></i> Lookers</li>
                 <ul id="lookers-links" class="link-list">
                     <li><a href="https://noonprd.cloud.looker.com/dashboards/67?Comcat+Code=%22health_nutrition%22" target="_blank">Live Trends</a></li>
-                    <li><a href="https://noonprd.cloud.looker.com/dashboards/17?Platform=Noon" target="_blank">Category Trends</a></li>
-                    <li><a href="https://noonprd.cloud.looker.com/dashboards/41?Comcat+Code=%22health_nutrition%22" target="_blank">Reservoir</a></li>
                 </ul>
 
                 <li class="section-item" onclick="toggleLinks('sheet-trackers-links')"><i class="fas fa-file-alt"></i> Sheet Trackers</li>
                 <ul id="sheet-trackers-links" class="link-list">
                     <li><a href="https://docs.google.com/spreadsheets/d/1kyR2XWs-ugBcZhiUTAk7ocTiiP5QVWgTedha_7yQNR4/edit#gid=1072011970" target="_blank">HN Tracker</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/18moBQNrWCbFCBk8cyGe2omJn2B69HOSxtJAL9Y5i7gc/edit#gid=1836234370" target="_blank">Rocket HN Tracker</a></li>
                 </ul>
 
                 <li class="section-item" onclick="toggleLinks('team-members-links')"><i class="fas fa-users"></i> Team Members</li>
                 <ul id="team-members-links" class="link-list">
                     <li>Ritika Jain - Category Head</li>
-                    <li>Yamini Paliwal - Senior Account Manager</li>
-                    <li>Parantap Joshi - Instock Manager</li>
                 </ul>
 
                 <li class="section-item" onclick="toggleLinks('sage-links')"><i class="fas fa-link"></i> Sage</li>
@@ -200,14 +220,6 @@
             <div class="snapshot-section">
                 <h2>OOS</h2>
                 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=1138821273&single=true&widget=true&headers=false"></iframe>
-            </div>
-            <div class="snapshot-section">
-                <h2>Price Comp</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=1125587693&single=true&widget=true&headers=false"></iframe>
-            </div>
-            <div class="snapshot-section">
-                <h2>PnL</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTED0nILB2UXF65Uxbp867F8gL-5p1avKVLXo0j9hkvzzLybb_3yY0w8Di7uYFmG2syBG3RoMoN-Q6p/pubhtml?gid=584988054&single=true&widget=true&headers=false"></iframe>
             </div>
         </div>
     </div>
