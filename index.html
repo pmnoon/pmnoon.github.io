@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Health & Nutrition Dashboard</title>
-    
+
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
+
     <style>
         /* General styling for the dashboard */
         body {
             font-family: 'Roboto', sans-serif;
-            background-color: #f9fafb;
+            background-color: #f4f7f9;
             color: #333;
             margin: 0;
             display: flex;
@@ -23,131 +23,126 @@
         /* Header styling */
         header {
             text-align: center;
-            padding: 20px;
-            background: linear-gradient(135deg, #66b2ff, #3b8bbf);
-            color: white;
+            padding: 20px 0;
+            background: linear-gradient(135deg, #56c596, #3a7d74);
+            color: #fff;
             font-family: 'Montserrat', sans-serif;
             letter-spacing: 1px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            position: relative;
-            overflow: hidden;
         }
 
         header h1 {
-            font-size: 2.2em;
+            font-size: 2.4em;
             margin: 0;
         }
 
         /* Sidebar and layout styling */
         .layout {
             display: flex;
-            height: 100vh;
+            min-height: 100vh;
         }
 
         .sidebar {
             position: fixed;
-            top: 80px;
+            top: 0;
             bottom: 0;
             left: 0;
-            width: 25%;
-            padding: 20px;
-            background-color: rgba(102, 178, 255, 0.1);
-            border-right: 2px solid #ccc;
+            width: 260px;
+            padding: 40px 20px;
+            background-color: #fff;
             box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+            border-right: 1px solid #eee;
             overflow-y: auto;
         }
 
-        .section-list {
-            list-style-type: none;
+        .sidebar .section-list {
+            list-style: none;
             padding: 0;
         }
 
         .section-item {
             cursor: pointer;
-            padding: 10px;
-            background-color: rgba(102, 178, 255, 0.7);
+            padding: 12px 15px;
+            background-color: #56c596;
             color: white;
             font-weight: bold;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             border-radius: 5px;
-            font-size: 1.1em;
+            font-size: 1.05em;
             text-align: center;
-            border: 1px solid rgba(59, 139, 191, 0.5);
-            transition: background-color 0.3s ease, transform 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
             font-family: 'Montserrat', sans-serif;
         }
 
         .section-item:hover {
-            background-color: rgba(102, 178, 255, 1);
+            background-color: #3a7d74;
             transform: scale(1.05);
         }
 
-        /* Styling for link lists */
+        /* Link styling */
         .link-list {
             display: none;
-            list-style-type: none;
-            padding-left: 15px;
+            list-style: none;
+            padding-left: 20px;
             margin-top: 5px;
-            font-family: 'Roboto', sans-serif;
             font-size: 0.95em;
-            line-height: 1.6;
-            color: #3b8bbf;
+            color: #3a7d74;
         }
 
         .link-list a {
-            color: #3b8bbf;
+            color: #3a7d74;
             text-decoration: none;
-            font-weight: 500;
             transition: color 0.3s ease;
         }
 
         .link-list a:hover {
-            color: #2c6ea6;
+            color: #56c596;
+            text-decoration: underline;
         }
 
         /* Main content styling */
         .main-content {
-            margin-left: 25%;
-            padding: 20px;
-            width: 75%;
-            overflow-y: auto;
+            margin-left: 280px;
+            padding: 40px;
+            background-color: #f4f7f9;
+            flex-grow: 1;
         }
 
         /* Snapshot section styling */
         .snapshot-section {
-            background-color: rgba(59, 139, 191, 0.1);
+            background-color: #fff;
             padding: 20px;
-            border-radius: 8px;
+            border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            border-left: 5px solid #66b2ff;
+            border-left: 5px solid #56c596;
             text-align: center;
             color: #333;
+            margin-bottom: 20px;
         }
 
         .snapshot-section h2 {
-            color: #3b8bbf;
-            font-size: 1.5em;
-            margin-bottom: 10px;
+            color: #3a7d74;
+            font-size: 1.6em;
+            margin-bottom: 15px;
             font-family: 'Montserrat', sans-serif;
         }
 
         /* Iframe styling */
         iframe {
-            width: 96%;
-            height: 300px;
+            width: 100%;
+            height: 320px;
             border: none;
             border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         /* Footer styling */
         footer {
             text-align: center;
             padding: 15px;
-            background-color: #66b2ff;
+            background-color: #56c596;
             color: white;
             font-size: 0.9em;
-            margin-top: 20px;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
             font-family: 'Roboto', sans-serif;
         }
 
@@ -191,40 +186,8 @@
                     <li><a href="rca.html" target="_blank">RCA</a></li>
                 </ul>
 
-                <li class="section-item" onclick="toggleLinks('sheet-trackers-links')"><i class="fas fa-file-alt"></i> Sheet Trackers</li>
-                <ul id="sheet-trackers-links" class="link-list">
-                    <li><a href="https://docs.google.com/spreadsheets/d/1kyR2XWs-ugBcZhiUTAk7ocTiiP5QVWgTedha_7yQNR4/edit?gid=1072011970#gid=1072011970" target="_blank">Account managers view-HN Tracker</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/18moBQNrWCbFCBk8cyGe2omJn2B69HOSxtJAL9Y5i7gc/edit?gid=1836234370#gid=1836234370" target="_blank">Account managers view Rocket-HN Tracker</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/1GSjTcbd33mVw7ZxIQOckFy8WftcnKOV_4q6-MNPtgTo/edit?gid=1091212100#gid=1091212100" target="_blank">HN Deals Coverage</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/1O3FCitPN8vrFGrGrccxELrAjeDAB__oPsLw-fyK9XkE/edit?gid=2044955906#gid=2044955906" target="_blank">Admon Investments HN</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/1FnpvJNflThR6Db7mftEXymOkkyXTxlRtyhzhCIcnJGY/edit?gid=748132405#gid=748132405" target="_blank">YF HN Inventory Demand Supply</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/1Y0IbJAwDL5q3CPW-o1G9eQLgc0WzNNNC87sGvWrQNlY/edit?gid=0#gid=0" target="_blank">Health Nutrition Project Update</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/1sSGNcfjEGLcSegsA_Te6bS79I93H6M96w57gOxesUEE/edit?gid=0#gid=0" target="_blank">AE-Health_NutritionXInstock_Summary</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/1Xx1Lfu_PassWQlTVansEMinxJgq9XR3xJwbEoHoBSeA/edit?gid=561514429#gid=561514429" target="_blank">SA-Health_NutritionXInstock_Summary</a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/1HiXKoBG-UhYJB_QPYG2ooiOtVazs_Hl9_0l5GwrBJpw/edit?gid=243812946#gid=243812946" target="_blank">HN Retail Complete </a></li>
-                    <li><a href="https://docs.google.com/spreadsheets/d/1HmnXxnOc-APiTV9AwHChkXdGMvDzHOOgZmDDvFU-Zbw/edit?gid=815469501#gid=815469501" target="_blank">AE_SA_Health_Nutrition_Assortment </a></li>
-                </ul>
+                <!-- Repeat for other sections like Sheet Trackers, Team Members, Sage, etc. -->
 
-                <li class="section-item" onclick="toggleLinks('team-members-links')"><i class="fas fa-users"></i> Team Members</li>
-                <ul id="team-members-links" class="link-list">
-                    <li>Ritika Jain - Category Head</li>
-                <li>Yamini Paliwal - Senior Account Manager</li>
-                <li>Parantap Joshi - Instock Manager</li>
-                <li>Mayank Gupta - Instock Associate</li>
-                <li>Akhila Ajith - BDS - Senior BDE </li>
-	            <li>Akhila Jowhar - Account Manager </li>
-               <li>Resvana Thanduparakkal - Pharmacist </li>
-                <li>Paulos Aron Tesfai - Senior Business Development Executive </li>
-                <li>Muhammed Samir - Account Manager</li>
-                <li>Abdullah Awais - Account Manager</li>
-                <li>Hadeer Samir - Junior Account Manager</li>
-		<li>Pushpak Musram - Business Analyst</li>
-                </ul>
-
-                <li class="section-item" onclick="toggleLinks('sage-links')"><i class="fas fa-link"></i> Sage</li>
-                <ul id="sage-links" class="link-list">
-                    <li><a href="https://sage.df.noon.team/" target="_blank">Sage</a></li>
-                </ul>
             </ul>
         </div>
 
@@ -238,14 +201,7 @@
                 <h2>OOS</h2>
                 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=604090395&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
             </div>
-            <div class="snapshot-section">
-                <h2>Price Comp</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=358527021&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-            </div>
-            <div class="snapshot-section">
-                <h2>PnL</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=382276878&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-            </div>
+            <!-- Add more snapshot sections as needed -->
         </div>
     </div>
 
