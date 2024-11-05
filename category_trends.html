@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Trends</title>
+    <style>
+        /* Styling for a truly full-page embedded dashboard */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background-color: #f9fafb;
+        }
+
+        .dashboard-container {
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        iframe {
+            width: 100%;
+            height: 100vh;
+            border: none;
+        }
+
+        h1 {
+            color: #3b8bbf;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="dashboard-container">
+        <h1>Live Trends Dashboard</h1>
+        <iframe src="https://noonprd.cloud.looker.com/embed/dashboards/17?Platform=Noon&Currency+Conversion=AED&Date=30+day&Date+Granularity=day&Comcat+Code=%22health_nutrition%22&Comcat+1=&Comcat+2=&Country=AE%2CSA&Product+Type=&Product+Subtype=&Bm2=&Bm1=&Brand+Code=&ID+Partner=&Partner+Name=&Is+Top+Brand+=&SKU=&Nub+Code=&Sub+Code=" title="Category Trends"></iframe>
+    </div>
+
+</body>
+</html>
