@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YF Today Track</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* General styling */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Header styling */
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background: linear-gradient(135deg, #56c596, #3a7d74);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            position: relative;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-size: 2.4em;
+            margin: 0;
+        }
+
+        /* Main content styling */
+        .main-content {
+            padding: 40px;
+            width: 100%;
+            margin-left: -40px;
+            max-width: 1500px;
+            background-color: #f4f7f9;
+        }
+
+        /* Snapshot section styling */
+        .snapshot-section {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            border-left: 5px solid #56c596;
+            text-align: center;
+            color: #333;
+            margin-bottom: 25px;
+            font-size: 1.1em;
+            width: 90%;
+        }
+
+        /* Title styling within snapshot section */
+        .snapshot-section h2 {
+            color: #3a7d74;
+            font-size: 1.8em;
+            margin-bottom: 20px;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Iframe styling */
+        iframe {
+            width: 100%;
+            height: 700px; /* Increased height for large box */
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #56c596;
+            color: white;
+            font-size: 0.9em;
+            font-family: 'Roboto', sans-serif;
+            width: 100%;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Main Heading -->
+    <header>
+        <h1>YF Today Track</h1>
+    </header>
+
+    <!-- Main content area with two large boxes -->
+    <div class="main-content">
+        <!-- First large box -->
+        <div class="snapshot-section">
+            <h2>AE Today</h2>
+            <iframe 
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR6zHx_ljZgydNLsn1sfie7j32e3WdvBWtY6XMPrmVNDp_GkUR7ndsabYP4PkpEeiK6sn2PbwOUigCB/pubhtml?gid=420308709&amp;single=true&amp;widget=true&amp;headers=false" 
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <!-- Second large box -->
+        <div class="snapshot-section">
+            <h2>SA Today</h2>
+            <iframe 
+                src="https://docs.google.com/spreadsheets/d/e/2PACX-1vR6zHx_ljZgydNLsn1sfie7j32e3WdvBWtY6XMPrmVNDp_GkUR7ndsabYP4PkpEeiK6sn2PbwOUigCB/pubhtml?gid=476878769&amp;single=true&amp;widget=true&amp;headers=false" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Health & Nutrition Team | <a href="mailto:contact@yourwebsite.com">Contact Us</a></p>
+    </footer>
+</body>
+</html>
