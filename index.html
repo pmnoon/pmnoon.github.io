@@ -38,7 +38,30 @@
             margin: 0;
         }
 
-        /* Sidebar styling */
+        /* Medicine stickers in header background */
+        header::before {
+            content: "";
+            position: absolute;
+            top: -20px;
+            left: -30px;
+            background: url('https://www.reshot.com/preview-assets/icons/XRPZDQVH42/medical-mask-XRPZDQVH42.svg') center / cover no-repeat;
+            opacity: 0.15;
+            width: 200px;
+            height: 200px;
+        }
+
+        header::after {
+            content: "";
+            position: absolute;
+            bottom: -20px;
+            right: -30px;
+            background: url('https://plus.unsplash.com/premium_photo-1668487826871-2f2cac23ad56?q=80&w=2912&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') center / cover no-repeat;
+            opacity: 0.15;
+            width: 200px;
+            height: 200px;
+        }
+
+        /* Sidebar and layout styling */
         .layout {
             display: flex;
             height: 100vh;
@@ -82,6 +105,7 @@
             transform: scale(1.05);
         }
 
+        /* Styling for link lists */
         .link-list {
             display: none;
             list-style-type: none;
@@ -121,7 +145,6 @@
             border-left: 5px solid #66b2ff;
             text-align: center;
             color: #333;
-            font-family: 'Roboto', sans-serif;
         }
 
         .snapshot-section h2 {
@@ -129,6 +152,14 @@
             font-size: 1.5em;
             margin-bottom: 10px;
             font-family: 'Montserrat', sans-serif;
+        }
+
+        /* Iframe styling */
+        iframe {
+            width: 95%;
+            height: 300px;
+            border: none;
+            border-radius: 8px;
         }
 
         /* Footer styling */
@@ -151,6 +182,11 @@
         footer a:hover {
             text-decoration: underline;
         }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
@@ -166,14 +202,14 @@
             <ul class="section-list">
                 <li class="section-item" onclick="toggleLinks('lookers-links')"><i class="fas fa-chart-line"></i> Lookers</li>
                 <ul id="lookers-links" class="link-list">
-                    <li><a href="#" target="_blank">Live Trends</a></li>
-                    <li><a href="#" target="_blank">Category Trends</a></li>
-                    <li><a href="#" target="_blank">Reservoir</a></li>
+                    <li><a href="https://noonprd.cloud.looker.com/dashboards/67?Comcat+Code=%22health_nutrition%22&Country=AE%2CSA&ID+Partner=&Comcat+2=&Product+Type=&Comcat+1=&Seller+Name=&Brand+Code=&SKU+Config=&Product+Subtype=&Is+Top+Brand=&Nub+Code=&Sub+Code=" target="_blank">Live Trends</a></li>
+                    <li><a href="https://noonprd.cloud.looker.com/dashboards/17?Platform=Noon&Currency+Conversion=AED&Date=30+day&Date+Granularity=day&Comcat+Code=%22health_nutrition%22&Comcat+1=&Comcat+2=&Country=AE%2CSA&Product+Type=&Product+Subtype=&Bm2=&Bm1=&Brand+Code=&ID+Partner=&Partner+Name=&Is+Top+Brand+=&SKU=&Nub+Code=&Sub+Code=" target="_blank">Category Trends</a></li>
+                    <li><a href="https://noonprd.cloud.looker.com/dashboards/41?Comcat+Code=%22health_nutrition%22&Brand+Code=&Gmv+Band=&SKU=&Country=AE%2CSA&Product+Type=&Warehouse+Type=&Is+Seller+Flex=&Bm1=&Bm2=&ID+Partner=&Comcat+1=&Comcat+2=&Is+Slob=&Is+Live=1&Is+Competitive=&Is+Comparable=&Partner+Code=&Is+Top+Brand=&SKU+Config=&Nub+Code=&Sub+Code=" target="_blank">Reservoir</a></li>
                 </ul>
 
                 <li class="section-item" onclick="toggleLinks('sheet-trackers-links')"><i class="fas fa-file-alt"></i> Sheet Trackers</li>
                 <ul id="sheet-trackers-links" class="link-list">
-                    <li><a href="#" target="_blank">Account managers view-HN Tracker</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1kyR2XWs-ugBcZhiUTAk7ocTiiP5QVWgTedha_7yQNR4/edit?gid=1072011970#gid=1072011970" target="_blank">Account managers view-HN Tracker</a></li>
                 </ul>
 
                 <li class="section-item" onclick="toggleLinks('team-members-links')"><i class="fas fa-users"></i> Team Members</li>
