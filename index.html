@@ -110,7 +110,6 @@
             margin-left: 20px; /* Matches sidebar width */
         }
 
-        /* Snapshot section styling */
         /* Base styling for all snapshot sections */
 	.snapshot-section {
 	    background-color: #fff;
@@ -122,24 +121,34 @@
 	    color: #333;
 	    margin-bottom: 25px;
 	    font-size: 1.1em;
+	    width: 100%;
 	}
 	
-	/* Styling for the larger snapshot section (Customer Satisfaction) */
+	/* Styling for titles in all snapshot sections */
+	.snapshot-section h2 {
+	    color: #3a7d74;
+	    font-size: 1.8em;
+	    margin-bottom: 20px;
+	    font-family: 'Montserrat', sans-serif;
+	}
+	
+	/* Uniform iframe styling for all boxes */
+	.snapshot-section iframe {
+	    width: 100%;
+	    height: 400px;
+	    border: none;
+	    border-radius: 8px;
+	    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	}
+	
+	/* Optional large size for specific snapshot sections */
 	.snapshot-section-large {
-	    padding: 30px; /* Keep the padding consistent */
-	    height: 600px; /* Custom height to make it taller */
-	    width: 100%; /* Keep it full-width within the main content area */
-	    margin-bottom: 30px; /* Adjust bottom margin for spacing */
-	}
-	
-	.snapshot-section-large h2 {
-	    font-size: 1.8em; /* Adjust font size for a consistent look */
+	    height: 500px; /* Adjust height if you need these boxes to be taller */
 	}
 	
 	.snapshot-section-large iframe {
-	    height: 550px; /* Adjust iframe height to fit within the larger box */
+	    height: 450px; /* Adjust iframe height accordingly */
 	}
-  
 
         /* Iframe styling */
         iframe {
@@ -245,25 +254,26 @@
         <!-- Main content area for snapshots -->
         <div class="main-content" id="main-content">
             <div class="snapshot-section">
-                <h2>GMV</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=422355027&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-            </div>
-            <div class="snapshot-section">
-                <h2>OOS</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=604090395&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-            </div>
-            <div class="snapshot-section">
-                <h2>Price Comp</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=358527021&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-            </div>
-            <div class="snapshot-section">
-                <h2>PnL</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=382276878&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-            </div>
-	     <div class="snapshot-section-large">
-                <h2>Deal Coverage</h2>
-                <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTX5jXY5IyMY9dzfm9XIy2SZO5_7OgT8aXELMwAreBwqUS0C_-KG7HvrzNXjr9kFaCYkpX8-iMm0CZC/pubhtml?gid=1091212100&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
-            </div>	
+		    <h2>GMV</h2>
+		    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=422355027&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+		</div>
+		
+		<div class="snapshot-section">
+		    <h2>OOS</h2>
+		    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=604090395&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+		</div>
+		
+		<!-- PnL and Deal Coverage - add any specific classes for size if needed -->
+		<div class="snapshot-section snapshot-section-large">
+		    <h2>PnL</h2>
+		    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=382276878&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+		</div>
+		
+		<div class="snapshot-section snapshot-section-large">
+		    <h2>Deal Coverage</h2>
+		    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=382276879&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+		</div>
+	
         </div>
     </div>
 
