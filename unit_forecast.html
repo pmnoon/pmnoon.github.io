@@ -80,13 +80,12 @@
         /* Main content styling */
         .main-content {
             flex-grow: 1;
-            padding: 20px 40px 40px; /* Reduced top padding */
+            padding: 40px;
             background-color: #f4f7f9;
             display: flex;
             justify-content: center;
-            align-items: flex-start; /* Aligns content higher */
+            align-items: center;
             flex-direction: column;
-            margin-top: -20px; /* Lifts content higher */
         }
 
         .main-content h2 {
@@ -96,13 +95,14 @@
             margin-bottom: 20px;
         }
 
-        /* Iframe styling */
+        /* Iframe styling - lifted with negative margin */
         iframe {
             width: 90%;
-            height: 800px; /* Increased height for a larger display */
+            height: 800px;
             border: none;
             border-radius: 8px;
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+            margin-top: -20px; /* Lifts the iframe/dashboard slightly */
         }
 
         /* Footer styling */
