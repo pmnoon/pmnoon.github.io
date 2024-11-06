@@ -43,28 +43,30 @@
         }
 
         .sidebar {
-            width: 240px;
-            padding: 60px 20px 20px;
+            width: 120px; /* Smaller width for the sidebar */
+            padding: 20px 10px;
             background-color: #fff;
             box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
             border-right: 1px solid #eee;
-            overflow-y: auto;
+            display: flex;
+            align-items: flex-start;
         }
 
-        .sidebar .section-list {
+        .section-list {
             list-style: none;
             padding: 0;
+            width: 100%;
         }
 
         .section-item {
             cursor: pointer;
-            padding: 15px;
+            padding: 10px;
             background-color: #56c596;
             color: white;
             font-weight: bold;
             margin-bottom: 12px;
             border-radius: 5px;
-            font-size: 1.05em;
+            font-size: 1em;
             text-align: center;
             transition: background-color 0.3s ease, transform 0.2s ease;
             font-family: 'Montserrat', sans-serif;
@@ -73,26 +75,6 @@
         .section-item:hover {
             background-color: #3a7d74;
             transform: scale(1.05);
-        }
-
-        .link-list {
-            display: none;
-            list-style: none;
-            padding-left: 20px;
-            margin-top: 5px;
-            font-size: 0.95em;
-            color: #3a7d74;
-        }
-
-        .link-list a {
-            color: #3a7d74;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .link-list a:hover {
-            color: #56c596;
-            text-decoration: underline;
         }
 
         /* Main content styling */
@@ -116,7 +98,7 @@
         /* Iframe styling */
         iframe {
             width: 90%;
-            height: 600px;
+            height: 800px; /* Increased height for a larger display */
             border: none;
             border-radius: 8px;
             box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
@@ -150,15 +132,10 @@
 
     <!-- Layout container for sidebar and main content -->
     <div class="layout">
-        <!-- Sidebar for sections and links -->
+        <!-- Sidebar with only Home button -->
         <div class="sidebar">
             <ul class="section-list">
                 <li class="section-item" onclick="window.location.href='index.html'"><i class="fas fa-home"></i> Home</li>
-                <li class="section-item" onclick="toggleLinks('forecast-links')"><i class="fas fa-chart-line"></i> Forecast</li>
-                <ul id="forecast-links" class="link-list">
-                    <li><a href="unit_forecast.html" target="_self">Unit Forecast</a></li>
-                </ul>
-                <!-- Add more sidebar items if needed -->
             </ul>
         </div>
 
@@ -166,7 +143,7 @@
         <div class="main-content">
             <h2>Interactive Dashboard</h2>
             <iframe
-                src="https://lookerstudio.google.com/embed/reporting/307e94f2-8549-4d89-b11e-52df3e721215/page/p_1vg4mkcmgd" <!-- Replace with your Looker Studio URL -->
+                src="https://lookerstudio.google.com/embed/reporting/307e94f2-8549-4d89-b11e-52df3e721215/page/p_1vg4mkcmgd"
                 frameborder="0"
                 allowfullscreen>
             </iframe>
@@ -177,13 +154,5 @@
     <footer>
         <p>&copy; 2024 Health & Nutrition Team | <a href="mailto:pmusram@noon.com">Contact Us</a></p>
     </footer>
-
-    <!-- JavaScript to toggle link visibility -->
-    <script>
-        function toggleLinks(id) {
-            const links = document.getElementById(id);
-            links.style.display = links.style.display === "none" ? "block" : "none";
-        }
-    </script>
 </body>
 </html>
