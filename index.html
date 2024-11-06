@@ -9,8 +9,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
+    
     <style>
-        /* General styling for the dashboard */
+        /* Genera styling for the dashboard */
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f4f7f9;
@@ -19,7 +20,176 @@
             display: flex;
             flex-direction: column;
         }
-        /* Sidebar, header, and other styles can remain the same as your code */
+
+        /* Header styling */
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background: linear-gradient(135deg, #56c596, #3a7d74);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+        }
+
+        header h1 {
+            font-size: 2.4em;
+            margin: 0;
+        }
+
+        /* Sidebar and layout styling */
+        .layout {
+            display: flex;
+            min-height: 100vh;
+            margin-top: -8px; /* slight adjustment for alignment */
+        }
+
+        .sidebar {
+            width: 240px; /* Reduced width to bring content closer */
+            padding: 60px 20px 20px; /* Adjust top padding for alignment */
+            background-color: #fff;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+            border-right: 1px solid #eee;
+            overflow-y: auto;
+            position: relative;
+            z-index: 5;
+        }
+
+        .sidebar .section-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section-item {
+            cursor: pointer;
+            padding: 15px;
+            background-color: #56c596;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 12px;
+            border-radius: 5px;
+            font-size: 1.05em;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .section-item:hover {
+            background-color: #3a7d74;
+            transform: scale(1.05);
+        }
+
+        /* Link styling */
+        .link-list {
+            display: none;
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 5px;
+            font-size: 0.95em;
+            color: #3a7d74;
+        }
+
+        .link-list a {
+            color: #3a7d74;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .link-list a:hover {
+            color: #56c596;
+            text-decoration: underline;
+        }
+
+        /* Main content styling */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+            background-color: #f4f7f9;
+            margin-left: 20px; /* Matches sidebar width */
+        }
+
+        /* Base styling for all snapshot sections */
+	.snapshot-section {
+	    background-color: #fff;
+	    padding: 30px;
+	    border-radius: 12px;
+	    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+	    border-left: 5px solid #56c596;
+	    text-align: center;
+	    color: #333;
+	    margin-bottom: 25px;
+	    font-size: 1.1em;
+	    width: 90%;
+	}
+	
+	/* Styling for titles in all snapshot sections */
+	.snapshot-section h2 {
+	    color: #3a7d74;
+	    font-size: 1.8em;
+	    margin-bottom: 20px;
+	    font-family: 'Montserrat', sans-serif;
+	}
+	
+	/* Uniform iframe styling for all boxes */
+	.snapshot-section iframe {
+	    width: 95%;
+	    height: 300px;
+	    border: none;
+	    border-radius: 8px;
+	    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+	}
+	
+	/* Optional large size for specific snapshot sections */
+	.snapshot-section-large {
+	    height: 800px; /* Adjust height if you need these boxes to be taller */
+	}
+	
+	.snapshot-section-large iframe {
+	    height: 700px; /* Adjust iframe height accordingly */
+	}
+	
+	.snapshot-section-large_2 {
+	    height: 700px; /* Adjust height if you need these boxes to be taller */
+	}
+	
+	.snapshot-section-large_2 iframe {
+	    height: 600px; /* Adjust iframe height accordingly */
+	}
+
+        /* Iframe styling */
+        iframe {
+            width: 95%;
+            height: 300px; /* increased height for better visibility */
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #56c596;
+            color: white;
+            font-size: 0.9em;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Smooth scroll */
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 <body>
@@ -36,30 +206,100 @@
                 <li class="section-item" onclick="toggleLinks('lookers-links')"><i class="fas fa-chart-line"></i> Lookers</li>
                 <ul id="lookers-links" class="link-list">
                     <li><a href="live_trends.html" target="_blank">Live Trends</a></li>
-                    <!-- Add other links as needed -->
+                    <li><a href="category_trends.html" target="_blank">Category Trends</a></li>
+                    <li><a href="reservoir.html" target="_blank">Reservoir</a></li>
+                    <li><a href="refuel_replenishment.html" target="_blank">Refuel and Replenishment</a></li>
+                    <li><a href="price_comp.html" target="_blank">Price Comp</a></li>
+                    <li><a href="retail_sku_master.html" target="_blank">Retail SKU Master</a></li>
+                    <li><a href="pnl.html" target="_blank">PnL</a></li>
+                    <li><a href="noon_assortment_trends.html" target="_blank">Noon Assortment Trends</a></li>
+                    <li><a href="deal_governance.html" target="_blank">Deal Governance</a></li>
+                    <li><a href="rca.html" target="_blank">RCA</a></li>
+		    <li><a href="retail_trading_view.html" target="_blank">Retail Trading View</a></li>
+                </ul>
+
+                <li class="section-item" onclick="toggleLinks('sheet-trackers-links')"><i class="fas fa-file-alt"></i> Sheet Trackers</li>
+                <ul id="sheet-trackers-links" class="link-list">
+                    <li><a href="https://docs.google.com/spreadsheets/d/1kyR2XWs-ugBcZhiUTAk7ocTiiP5QVWgTedha_7yQNR4/edit?gid=1072011970#gid=1072011970" target="_blank">AM view - HN Tracker</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/18moBQNrWCbFCBk8cyGe2omJn2B69HOSxtJAL9Y5i7gc/edit?gid=1836234370#gid=1836234370" target="_blank">AM view Rocket- HN Tracker</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1GSjTcbd33mVw7ZxIQOckFy8WftcnKOV_4q6-MNPtgTo/edit?gid=1091212100#gid=1091212100" target="_blank">HN Deals Coverage</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1O3FCitPN8vrFGrGrccxELrAjeDAB__oPsLw-fyK9XkE/edit?gid=2044955906#gid=2044955906" target="_blank">Admon Investments HN</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1FnpvJNflThR6Db7mftEXymOkkyXTxlRtyhzhCIcnJGY/edit?gid=748132405#gid=748132405" target="_blank">YF HN Inventory Demand Supply</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1Y0IbJAwDL5q3CPW-o1G9eQLgc0WzNNNC87sGvWrQNlY/edit?gid=0#gid=0" target="_blank">Health Nutrition Project Update</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1sSGNcfjEGLcSegsA_Te6bS79I93H6M96w57gOxesUEE/edit?gid=0#gid=0" target="_blank">AE-HN Instock_Summary</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1Xx1Lfu_PassWQlTVansEMinxJgq9XR3xJwbEoHoBSeA/edit?gid=561514429#gid=561514429" target="_blank">SA-HN Instock_Summary</a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1HiXKoBG-UhYJB_QPYG2ooiOtVazs_Hl9_0l5GwrBJpw/edit?gid=243812946#gid=243812946" target="_blank">HN Retail Complete </a></li>
+                    <li><a href="https://docs.google.com/spreadsheets/d/1HmnXxnOc-APiTV9AwHChkXdGMvDzHOOgZmDDvFU-Zbw/edit?gid=815469501#gid=815469501" target="_blank">AE_SA_HN_Assortment </a></li>
+                </ul>
+
+                <li class="section-item" onclick="toggleLinks('team-members-links')"><i class="fas fa-users"></i> Team Members</li>
+                <ul id="team-members-links" class="link-list">
+                    <li>Ritika Jain - Category Head</li>
+                <li>Yamini Paliwal - Senior Account Manager</li>
+                <li>Parantap Joshi - Instock Manager</li>
+                <li>Mayank Gupta - Instock Associate</li>
+                <li>Akhila Ajith - BDS - Senior BDE </li>
+	            <li>Akhila Jowhar - Account Manager </li>
+               <li>Resvana Thanduparakkal - Pharmacist </li>
+                <li>Paulos Aron Tesfai - Senior Business Development Executive </li>
+                <li>Muhammed Samir - Account Manager</li>
+                <li>Abdullah Awais - Account Manager</li>
+                <li>Hadeer Samir - Junior Account Manager</li>
+                </ul>
+
+                <li class="section-item" onclick="toggleLinks('sage-links')"><i class="fas fa-link"></i> Sage</li>
+                <ul id="sage-links" class="link-list">
+                    <li><a href="https://sage.df.noon.team/" target="_blank">Sage</a></li>
+                </ul>
+
+                <li class="section-item" onclick="toggleLinks('project-links')"><i class="fas fa-tasks"></i> Project</li>
+                <ul id="project-links" class="link-list">
+                    <li><a href="project.html" target="_blank">Summary</a></li>
+                    <li><a href="output_metrics.html" target="_blank">Output Metrics</a></li>
+                </ul>
+
+                <li class="section-item" onclick="toggleLinks('yf-links')"><i class="fas fa-folder"></i> YF</li>
+                <ul id="yf-links" class="link-list">
+                    <li><a href="warroom_2024.html" target="_blank">Warroom Overall</a></li>
+		    <li><a href="warroom_dod.html" target="_blank">Warroom DOD</a></li>	
+		    <li><a href="yf_today_track.html" target="_blank">YF Today Track</a></li>
+		    <li><a href="yf_yesterday_track.html" target="_blank">YF Yesterday Track</a></li>	
+		    	
                 </ul>
             </ul>
         </div>   
 
-        <!-- Main content area for snapshots with placeholders for each view -->
+        <!-- Main content area for snapshots -->
         <div class="main-content" id="main-content">
             <div class="snapshot-section">
-                <h2>GMV</h2>
-                <div id="gmv-content">Loading GMV...</div>
-            </div>
-            <div class="snapshot-section">
-                <h2>OOS</h2>
-                <div id="oos-content">Loading OOS...</div>
-            </div>
-            <div class="snapshot-section">
-                <h2>Price Comp</h2>
-                <div id="price-comp-content">Loading Price Comp...</div>
-            </div>
-            <div class="snapshot-section">
-                <h2>PnL</h2>
-                <div id="pnl-content">Loading PnL...</div>
-            </div>
-            <!-- Add more sections if needed for other views -->
+		    <h2>GMV</h2>
+		    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=422355027&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+		</div>
+		
+		<div class="snapshot-section">
+		    <h2>OOS</h2>
+		    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=604090395&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+		</div>
+		<div class="snapshot-section">
+                    <h2>Price Comp</h2>
+                    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=358527021&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+                </div>
+
+		
+		<!-- PnL and Deal Coverage - add any specific classes for size if needed -->
+		<div class="snapshot-section">
+		    <h2>PnL</h2>
+		    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSQ1du_OanIQHnOpcbu6q8JF7rdOfGX0-ihO1EAAatqkYuKtw6u-6EHXHxtaQl7XSrg_0tvnyQ5O2Ea/pubhtml?gid=382276878&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+		</div>
+		<div class="snapshot-section snapshot-section-large_2">
+		    <h2>Admon Investments</h2>
+		    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRdnWFg_jlxcu2hwwEgGMN4OMkeE0H2MJAcKZ2D-7S-NtlLat5QFeWy9osaK_iFmv3mIGiaAHsWUIqO/pubhtml?gid=2044955906&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+		</div>
+		<div class="snapshot-section snapshot-section-large">
+		    <h2>Deal Coverage</h2>
+		    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vTX5jXY5IyMY9dzfm9XIy2SZO5_7OgT8aXELMwAreBwqUS0C_-KG7HvrzNXjr9kFaCYkpX8-iMm0CZC/pubhtml?gid=1091212100&amp;single=true&amp;widget=true&amp;headers=false"></iframe>
+		</div>
+	
         </div>
     </div>
 
@@ -74,72 +314,7 @@
             const links = document.getElementById(id);
             links.style.display = links.style.display === "none" ? "block" : "none";
         }
-
-        // Cache settings for each view with URLs
-        const CACHE_SETTINGS = {
-            gmv: { key: 'gmvCache', expirationKey: 'gmvCacheExpiration', url: 'https://script.google.com/a/macros/noon.com/s/AKfycbwiHJ3qln0wfUDdxEmB8aJaOFylJnBxc9ZFlktjb3E512ysttXFo18F-d4RIGaA7Bk/exec' },
-            oos: { key: 'oosCache', expirationKey: 'oosCacheExpiration', url: 'https://script.google.com/a/macros/noon.com/s/AKfycbxO5Y0R7EvQiUnqkLL6rcluDG5esvAlIenY0U3PwcnpprtTUWhGg4dtrZFWEwf7s7G4/exec' },
-            priceComp: { key: 'priceCompCache', expirationKey: 'priceCompCacheExpiration', url: 'https://script.google.com/a/macros/noon.com/s/AKfycbxicM7czjTFc2a6D161tUG1uQiZcyuXh3AFZjA8hv34PfoIm1n3_QhCC59BRl_zH9gx/exec' },
-            pnl: { key: 'pnlCache', expirationKey: 'pnlCacheExpiration', url: 'https://script.google.com/a/macros/noon.com/s/AKfycbzrspC6eo8qwSgi2lE9IRSx8cZ8k3qha1ALq0Xiij0oxA9syDfurUp39vmAus_gCbah/exec' }
-            // Add more views if needed
-        };
-        const CACHE_DURATION = 3600000; // 1 hour in milliseconds
-
-        // Fetch data with caching for a specific view
-        async function fetchData(viewKey) {
-            const now = Date.now();
-            const { key, expirationKey, url } = CACHE_SETTINGS[viewKey];
-            const cachedData = localStorage.getItem(key);
-            const cacheExpiration = localStorage.getItem(expirationKey);
-
-            // Use cached data if valid
-            if (cachedData && cacheExpiration && now < cacheExpiration) {
-                console.log(`Using cached data for ${viewKey}`);
-                return JSON.parse(cachedData);
-            }
-
-            // Fetch new data if cache expired or missing
-            console.log(`Fetching new data for ${viewKey}`);
-            try {
-                const response = await fetch(url);
-                if (!response.ok) throw new Error("Network response was not ok");
-
-                const data = await response.json();
-
-                // Store new data and expiration time
-                localStorage.setItem(key, JSON.stringify(data));
-                localStorage.setItem(expirationKey, now + CACHE_DURATION);
-
-                return data;
-            } catch (error) {
-                console.error(`Failed to fetch data for ${viewKey}:`, error);
-                return cachedData ? JSON.parse(cachedData) : null;
-            }
-        }
-
-        // Render data to each section based on fetched data
-        async function renderData() {
-            // Fetch and display GMV data
-            const gmvData = await fetchData('gmv');
-            document.getElementById("gmv-content").innerHTML = gmvData ? gmvData.value : "No data available";
-
-            // Fetch and display OOS data
-            const oosData = await fetchData('oos');
-            document.getElementById("oos-content").innerHTML = oosData ? oosData.value : "No data available";
-
-            // Fetch and display Price Comp data
-            const priceCompData = await fetchData('priceComp');
-            document.getElementById("price-comp-content").innerHTML = priceCompData ? priceCompData.value : "No data available";
-
-            // Fetch and display PnL data
-            const pnlData = await fetchData('pnl');
-            document.getElementById("pnl-content").innerHTML = pnlData ? pnlData.value : "No data available";
-
-            // Repeat for other sections as needed
-        }
-
-        // Initial call to render all data sections
-        renderData();
     </script>
 </body>
 </html>
+
