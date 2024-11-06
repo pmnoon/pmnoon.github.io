@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Forecast</title>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        /* General styling for the dashboard */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f7f9;
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header styling */
+        header {
+            text-align: center;
+            padding: 20px 0;
+            background: linear-gradient(135deg, #56c596, #3a7d74);
+            color: #fff;
+            font-family: 'Montserrat', sans-serif;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        header h1 {
+            font-size: 2.4em;
+            margin: 0;
+        }
+
+        /* Sidebar and layout styling */
+        .layout {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        .sidebar {
+            width: 240px;
+            padding: 60px 20px 20px;
+            background-color: #fff;
+            box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+            border-right: 1px solid #eee;
+            overflow-y: auto;
+        }
+
+        .sidebar .section-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .section-item {
+            cursor: pointer;
+            padding: 15px;
+            background-color: #56c596;
+            color: white;
+            font-weight: bold;
+            margin-bottom: 12px;
+            border-radius: 5px;
+            font-size: 1.05em;
+            text-align: center;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .section-item:hover {
+            background-color: #3a7d74;
+            transform: scale(1.05);
+        }
+
+        .link-list {
+            display: none;
+            list-style: none;
+            padding-left: 20px;
+            margin-top: 5px;
+            font-size: 0.95em;
+            color: #3a7d74;
+        }
+
+        .link-list a {
+            color: #3a7d74;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .link-list a:hover {
+            color: #56c596;
+            text-decoration: underline;
+        }
+
+        /* Main content styling */
+        .main-content {
+            flex-grow: 1;
+            padding: 40px;
+            background-color: #f4f7f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .main-content h2 {
+            color: #3a7d74;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        /* Iframe styling */
+        iframe {
+            width: 90%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer styling */
+        footer {
+            text-align: center;
+            padding: 15px;
+            background-color: #56c596;
+            color: white;
+            font-size: 0.9em;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <h1>Unit Forecast</h1>
+    </header>
+
+    <!-- Layout container for sidebar and main content -->
+    <div class="layout">
+        <!-- Sidebar for sections and links -->
+        <div class="sidebar">
+            <ul class="section-list">
+                <li class="section-item" onclick="window.location.href='index.html'"><i class="fas fa-home"></i> Home</li>
+                <li class="section-item" onclick="toggleLinks('forecast-links')"><i class="fas fa-chart-line"></i> Forecast</li>
+                <ul id="forecast-links" class="link-list">
+                    <li><a href="unit_forecast.html" target="_self">Unit Forecast</a></li>
+                </ul>
+                <!-- Add more sidebar items if needed -->
+            </ul>
+        </div>
+
+        <!-- Main content area for the Looker Studio dashboard -->
+        <div class="main-content">
+            <h2>Interactive Dashboard</h2>
+            <iframe
+                src="https://lookerstudio.google.com/s/vdNImpmoriE" <!-- Replace with your Looker Studio URL -->
+                frameborder="0"
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Health & Nutrition Team | <a href="mailto:pmusram@noon.com">Contact Us</a></p>
+    </footer>
+
+    <!-- JavaScript to toggle link visibility -->
+    <script>
+        function toggleLinks(id) {
+            const links = document.getElementById(id);
+            links.style.display = links.style.display === "none" ? "block" : "none";
+        }
+    </script>
+</body>
+</html>
